@@ -1,0 +1,71 @@
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column; /* Ensure forms are stacked vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Centered Form Container */
+form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px; /* Spacing between stacked forms */
+    text-align: center;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Placeholder Text */
+input::placeholder {
+    color: #888;
+}
+
+/* Headings */
+h3 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Button Styling */
+button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+.form-error {
+    color: red;
+    margin-top: 10px;
+}
+
+.form-success{
+    color: #297e29;
+    margin-top: 10px;
+}
