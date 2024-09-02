@@ -31,6 +31,7 @@ require_once 'views/login_view.php'
             <input type="text" name="username" id="username" placeholder="Username">
             <input type="password" name="password" id="password" placeholder="Password">
             <button type="submit">Login</button>
+            <a href="forgotten_password.php">forgot password?</a>
         </form>
     <?php }
     ?>
