@@ -3,8 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php';
-require_once 'password.php';
+require '../vendor/autoload.php'; // Composer's autoload file
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
@@ -19,25 +18,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         store_password_reset_token($pdo, $user['id'], $token, $expiry_time);
 
-        $reset_link = "http://localhost/login_system/index.php/includes/reset_password.php?token=" . $token;
+        $reset_link = "http://localhost/login_system/includes/reset_password.php?token=" . $token;
 
         $mail = new PHPMailer(true);
 
         try {
-            $mail->SMTPDebug = 2;
-
+            include_once 'password.php';
             // Server settings
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = 'sandbox.smtp.mailtrap.io'; // Mailtrap SMTP server
             $mail->SMTPAuth = true;
-            $mail->Username = 'martinssolution0@gmail.com';
-            $mail->Password = server_password(); // Used App Password here
-            $mail->Port = 587;
-            $mail->SMTPSecure = 'tsl';
+            $mail->Username = 'a0d39af9fcd13d'; // Your Mailtrap username
+            $mail->Password = server_password(); // Your Mailtrap password
+            $mail->Port = 2525; // Mailtrap port
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
 
             // Recipients
-            $mail->setFrom('martinssolution0@gmail.com', 'MartinsCode');
-            $mail->addAddress($email);
+            $mail->setFrom('your_email@example.com', 'Your Name'); // Replace with your email (doesn't need to be real for Mailtrap)
+            $mail->addAddress($email); // The email of the user requesting the password reset
 
             // Content
             $mail->isHTML(true);
