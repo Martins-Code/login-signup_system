@@ -29,6 +29,8 @@
             update_user_password($pdo, $reset_request['user_id'], $hashed_password);
             delete_password_reset_token($pdo, $token);
             echo "Password reset successful!";
+
+            header("Location: ../index.php");
         } else {
             echo "Invalid or expired token!";
         }
